@@ -9,3 +9,7 @@ func ReturnHelloWorld() string {
 func ReturnPassedString(s string) string {
 	return s
 }
+
+func returnSomething() string {
+	return "blah"
+}

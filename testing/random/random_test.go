@@ -22,3 +22,10 @@ func TestReturnPassedString(t *testing.T) {
 		t.Fatal("type returned was not of type string")
 	}
 }
+
+func TestReturnSomething(t *testing.T) {
+	result := returnSomething()
+	if result != "blah" {
+		t.Fatal("blah not returned")
+	}
+}
