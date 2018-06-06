@@ -1,6 +1,6 @@
 package random
 
-// ReturnHelloWorld returns hello world.
+// ReturnHelloWorld returns string "hello world".
 func ReturnHelloWorld() string {
 	return "hello world"
 }
@@ -13,3 +13,4 @@ func ReturnPassedString(s string) string {
 func returnSomething() string {
 	return "blah"
 }
+

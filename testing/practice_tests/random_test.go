@@ -9,7 +9,7 @@ import (
 func TestReturnHelloWorld(t *testing.T) {
 	result := ReturnHelloWorld()
 	if result != "hello world" {
-		t.Fatal("hello world was not returned")
+		t.Fatal("\"hello world\" was not returned")
 	}
 }
 
@@ -29,3 +29,4 @@ func TestReturnSomething(t *testing.T) {
 		t.Fatal("blah not returned")
 	}
 }
+
