@@ -17,7 +17,7 @@ var port = "6060"
 func rootHandler(w http.ResponseWriter, r *http.Request) {
 
 	// display to browser request
-	fmt.Fprintln(w, "hello world")
+	fmt.Fprintln(w, "Hello World!")
 
 	// log who requests root
 	log.Println(r.RemoteAddr, "requested", r.RequestURI)
@@ -52,7 +52,7 @@ func main() {
 		}
 	}()
 
-	log.Println("waiting for signal... (channels block)")
+	log.Println("waiting for signal... (channels block ~ Todd McLeod)")
 	s := <-ch
 	log.Println("Got SIGNAL:", s)
 
