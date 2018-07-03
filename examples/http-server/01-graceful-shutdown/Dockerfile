@@ -1,6 +1,6 @@
 FROM golang as binaryBuilder
 WORKDIR /go/src/app
-COPY ./test/. .
+COPY . .
 RUN env GOOS=linux GOARCH=386 go build -v -o main main.go
 
 FROM scratch
