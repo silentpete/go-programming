@@ -10,21 +10,26 @@ import (
 )
 
 var (
-	pageHits = prometheus.NewCounter(prometheus.CounterOpts{
-		Name: "helloworld_page_hits",
-		Help: "The total count of page requests to / sinse server started.",
+	totalRequests = prometheus.NewCounter(prometheus.CounterOpts{
+		Name: "helloworld_total_requests",
+		Help: "The total count of page requests to /* sinse server started.",
+	})
+	iconRequests = prometheus.NewCounter(prometheus.CounterOpts{
+		Name: "helloworld_total_icon_requests",
+		Help: "The total count of page requests to /* sinse server started.",
 	})
 )
 
 func init() {
 	// Metrics have to be registered to be exposed:
-	prometheus.MustRegister(pageHits)
+	prometheus.MustRegister(totalRequests)
+	prometheus.MustRegister(iconRequests)
 
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	// increment the pageHits when someone requests the /
-	pageHits.Inc()
+	// increment the page hits when someone requests the /
+	totalRequests.Inc()
 	// print out to the browser Hello World!
 	fmt.Fprintf(w, "Hello World!")
 	// log the request URI to the server stdout
@@ -32,6 +37,8 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func faviconHandler(w http.ResponseWriter, r *http.Request) {
+	totalRequests.Inc()
+	iconRequests.Inc()
 	log.Println("icon was requested by:", r.RemoteAddr)
 	fmt.Fprintf(w, "")
 }
