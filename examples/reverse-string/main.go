@@ -2,6 +2,7 @@
 package main
 
 import "fmt"
+// For writing example code, this is the short way to the directory with a sub package.
 import "./mystring"
 
 func main() {
