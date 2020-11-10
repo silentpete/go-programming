@@ -43,7 +43,7 @@ func (collector *fooCollector) Describe(ch chan<- *prometheus.Desc) {
 	ch <- collector.barMetric
 }
 
-//Collect implements required collect function for all promehteus collectors
+//Collect implements required collect function for all prometheus collectors
 func (collector *fooCollector) Collect(ch chan<- prometheus.Metric) {
 
 	//Implement logic here to determine proper metric value to return to prometheus
