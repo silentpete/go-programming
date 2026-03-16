@@ -3,9 +3,9 @@ package main
 import (
 	"errors"
 	"html/template"
-	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 	"regexp"
 )
 
@@ -20,7 +20,7 @@ type Page struct {
 
 func (p *Page) save() error {
 	filename := p.Title + ".txt"
-	return ioutil.WriteFile(filename, p.Body, 0600)
+	return os.WriteFile(filename, p.Body, 0600)
 }
 
 func getTitle(w http.ResponseWriter, r *http.Request) (string, error) {
@@ -34,7 +34,7 @@ func getTitle(w http.ResponseWriter, r *http.Request) (string, error) {
 
 func loadPage(title string) (*Page, error) {
 	filename := title + ".txt"
-	body, err := ioutil.ReadFile(filename)
+	body, err := os.ReadFile(filename)
 	if err != nil {
 		return nil, err
 	}
@@ -92,5 +92,5 @@ func main() {
 	http.HandleFunc("/edit/", makeHandler(editHandler))
 	http.HandleFunc("/save/", makeHandler(saveHandler))
 
-	log.Fatal(http.ListenAndServe(":8000", nil))
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }

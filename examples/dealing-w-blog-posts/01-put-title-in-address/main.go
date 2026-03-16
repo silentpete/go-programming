@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
@@ -174,9 +173,9 @@ func prettyDateFromPath(fullpath string) string {
 
 // summaryFromFile opens the file, reads in the first line, and returns a string.
 func summaryFromFile(f string) string {
-	fileread, err := ioutil.ReadFile(f)
+	fileread, err := os.ReadFile(f)
 	if err != nil {
-		log.Println("ERROR: summary ioutil.ReadFile", err)
+		log.Println("ERROR: summary os.ReadFile", err)
 	}
 	lines := strings.Split(string(fileread), "\n")
 	return string(lines[0])
@@ -184,9 +183,9 @@ func summaryFromFile(f string) string {
 
 // bodyFromFile opens the file, reads from the 3rd line down, blackfriday parses it, and returns a string.
 func bodyFromFile(f string) string {
-	fileread, err := ioutil.ReadFile(f)
+	fileread, err := os.ReadFile(f)
 	if err != nil {
-		log.Println("ERROR: body ioutil.ReadFile", err)
+		log.Println("ERROR: body os.ReadFile", err)
 	}
 	lines := strings.Split(string(fileread), "\n")
 	body := strings.Join(lines[2:len(lines)], "\n")
