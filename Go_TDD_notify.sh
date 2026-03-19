@@ -3,6 +3,8 @@
 ## Run this file while writing code in the subdirectories. If test files are found in the
 #  directory of the changed file, the tests will be run.
 
+# inotifywait comes from Ubuntu package inotify-tools; sudo apt install inotify-tools
+
 ## Example from: http://tysonmaly.com/programming/go/test-driven-developement-with-golang-on-osx/
 # inotifywait -mr . -e close_write | while read path action file; do
 #   if [[ "$file" =~ .*go$ ]]; then
